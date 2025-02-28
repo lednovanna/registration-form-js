@@ -1,0 +1,113 @@
+body {
+    font-family: "Roboto", serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    background: white;
+    padding: 20px 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    
+}
+
+#registrationForm {
+    width: 100%;
+}
+
+h2 {
+    text-align: center;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.field-wrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.field-wrapper  input{
+    flex-grow: 1;
+    width: 100%;
+    
+}
+
+input:hover {
+    border-color: #28a745;
+}
+
+
+button {
+    width: 100%;
+    padding: 10px;
+    background: #28a745;
+    color: white;
+    font-size: 16px;
+    border: none;
+    margin: 25px 0px 0px 0px;
+
+    cursor: pointer;
+    align-items: center;
+    border-radius: 8px;
+     
+}
+
+button:hover {
+    background: #218838;
+}
+
+
+
+.error-message {
+    color: red;
+    font-size: 12px;
+    display: none;
+}
+
+.field-wrapper {
+    display: flex;
+    width: 100%;
+    position: relative;
+    max-width: 300px;
+}
+.field-icon {
+  background-image: url('./icons/show.png');
+  background-size: contain;
+  cursor: pointer;
+  display: block !important;
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  right: 16px;
+  top: calc(50% - 10px);
+}
+
+.field-icon.show {
+    background-image: url('./icons/hide.png');
+}
+
+.field-icon .actionText {
+    color: #666!important;
+}
+
