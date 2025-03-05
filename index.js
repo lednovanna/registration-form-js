@@ -245,6 +245,13 @@ class RegistrationForm {
             return false;
         }
 
+        
+    if (id === "email" && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+        this.showError(element, "Please enter a valid email.");
+        return false;
+    }
+
+
         if (id === "password" && value.length < 6) {
             this.showError(element, "The password must contain at least 6 characters.");
             return false;
@@ -258,20 +265,23 @@ class RegistrationForm {
         event.preventDefault();
         
         let valid = true;
-        const nameInput = document.getElementById("name");
-        const emailInput = document.getElementById("email");
-        const passwordInput = document.getElementById("password");
+       
+        const formElements = ["name", "email", "password"].map(id => document.getElementById(id));
 
-        if (!this.validate(nameInput)) valid = false;
-        if (!this.validate(emailInput)) valid = false;
-        if (!this.validate(passwordInput)) valid = false;
-
+        formElements.forEach(input => {
+            if (!this.validate(input)) valid = false;
+        });
+    
         if (valid) {
+            const formData = Object.fromEntries(new FormData(document.getElementById("registrationForm")));
+            localStorage.setItem("userData", JSON.stringify(formData));
+    
             alert("The form has been successfully submitted!");
             document.getElementById("registrationForm").reset();
         } else {
             alert("Please fill out the form correctly.");
         }
+
     };
 
     static change = (element) => {
